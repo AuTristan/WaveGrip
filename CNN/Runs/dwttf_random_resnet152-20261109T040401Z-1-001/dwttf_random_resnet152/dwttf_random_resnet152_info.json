@@ -1,0 +1,73 @@
+{
+  "run_name": "dwttf_random_resnet152",
+  "representation": "dwttf",
+  "dataset_file": "dwt_wrist/grabmyo_wrist_dwt.h5",
+  "input_shape": [
+    12,
+    5,
+    2560
+  ],
+  "model": "resnet152",
+  "layout": {
+    "channels": "12 electrodes",
+    "height": [
+      "A5",
+      "D5",
+      "D4",
+      "D3",
+      "D2"
+    ],
+    "width": "2560 time columns",
+    "time_step_ms": 1.953125,
+    "values": "signed db4 coefficients, z-scored per (electrode, band)",
+    "alignment": "each band repeated to the shared grid (A5/D5 x8, D4 x4, D3 x2, D2 x1)",
+    "smoothing": null
+  },
+  "architecture": "ResNet-152 v1.5",
+  "skip_connections": true,
+  "resnet_layers": [
+    3,
+    8,
+    36,
+    3
+  ],
+  "resnet_widths": [
+    64,
+    128,
+    256,
+    512
+  ],
+  "n_classes": 17,
+  "split": "random",
+  "test_fraction": 0.2,
+  "val_fraction": 0.2,
+  "n_train": 9824,
+  "n_val": 2456,
+  "n_test": 3071,
+  "min_epochs": 10,
+  "max_epochs": 50,
+  "patience": 8,
+  "batch_size": 32,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "amp": true,
+  "seed": 0,
+  "device": "cuda (Tesla T4)",
+  "epochs_run": 45,
+  "best_epoch": 37,
+  "best_val_loss": 0.7041594605492458,
+  "best_val_acc": 0.7825732899022801,
+  "best_train_loss": 0.07319385143367009,
+  "best_train_acc": 0.9842223127035831,
+  "total_time_s": 2612.2054072039987,
+  "train_time_s": 2424.481533068999,
+  "mean_epoch_train_s": 53.87736740153331,
+  "files": {
+    "state_dict": "dwttf_random_resnet152_state_dict.pt",
+    "checkpoint": "dwttf_random_resnet152_checkpoint.pt",
+    "history": "dwttf_random_resnet152_history.csv",
+    "curves": "dwttf_random_resnet152_curves.png",
+    "normalization": "dwttf_random_resnet152_normalization.npz",
+    "split": "dwttf_random_resnet152_split.npz"
+  }
+}

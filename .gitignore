@@ -3,3 +3,8 @@ Dataset/
 __pycache__/
 *.pyc
 ProcessedDatasets/
+
+# Trained model weights (state dicts ~230 MB, checkpoints ~930 MB); keep curves, history, info, splits, normalization
+*.pt
+*.pth
+*.ckpt
